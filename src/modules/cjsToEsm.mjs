@@ -1,16 +1,18 @@
-const path = require('path');
-const { release, version } = require('os');
-const { createServer: createServerHttp } = require('http');
-require('./files/c');
+import path from 'path';
+import { release, version } from 'os';
+import { createServer as createServerHttp } from 'http';
+import './files/c';
+import * as a from './files/a.json' assert { type: 'json' };
+import * as b from './files/b.json' assert { type: 'json' };
 
 const random = Math.random();
 
 let unknownObject;
 
 if (random > 0.5) {
-    unknownObject = require('./files/a.json');
+    unknownObject = a;
 } else {
-    unknownObject = require('./files/b.json');
+    unknownObject = b;
 }
 
 console.log(`Release ${release()}`);
@@ -24,8 +26,7 @@ const createMyServer = createServerHttp((_, res) => {
     res.end('Request accepted');
 });
 
-module.exports = {
+export {
     unknownObject,
     createMyServer,
 };
-
