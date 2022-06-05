@@ -11,7 +11,6 @@ const coresNumber = os.cpus().length
 const { Worker } = threads;
 
 export const performCalculations = async () => {
-    const result = await runService('hello node.js')
 
     for ( let i=0; i<coresNumber; i++ ) {
         let worker = new Worker(srcPath, {
@@ -22,7 +21,6 @@ export const performCalculations = async () => {
             console.log({'status': 'resolved', 'data': args[0]})
         });
     }
-    console.log('result', result)
 };
 
 performCalculations();
