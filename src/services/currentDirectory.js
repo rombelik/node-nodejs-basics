@@ -1,9 +1,9 @@
-'use strict';
-
 import os from "os";
 
-const getCurrentDirectoryPath = () => {
+const getHomeDir = () => {
     return os.homedir();
 }
 
-export {getCurrentDirectoryPath}
+export {
+    getHomeDir
+}
